@@ -265,6 +265,14 @@ local default_plugins = {
       require("which-key").setup(opts)
     end,
   },
+  {
+  "neovim/nvim-lspconfig",
+   config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+   end,
+    lazy=false,
+  },
 }
 
 local config = require("core.utils").load_config()
