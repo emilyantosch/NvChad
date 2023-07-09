@@ -1,14 +1,25 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "clangd", "pyright"}
+local lspconfig = require("lspconfig")
+local util = require "lspconfig/util"
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
+
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"rust"},
+  root_dir = util.root_pattern("Cargo.toml"),
+  settings = {
+    ['rust_analyzer'] = {
+      cargo = {
+        allFeatures = true
+      }
+    }
   }
-end
-
-lspconfig.pyright.setup {}
+}
