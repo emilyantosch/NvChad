@@ -7,6 +7,49 @@ local plugins = {
    end,
   },
   {
+  "iamcco/markdown-preview.nvim",
+    ft = {
+      "markdown",
+      "md"
+    },
+   config = function()
+   end,
+  },
+  {
+  "kylechui/nvim-surround",
+  lazy = false,
+    config = function()
+      require("nvim-surround").setup({
+      keymaps = {
+          insert = "<C-g>s",
+          insert_line = "<C-g>S",
+          normal = "ys",
+          normal_cur = "yss",
+          normal_line = "yS",
+          normal_cur_line = "ySS",
+          visual = "S",
+          visual_line = "gS",
+          delete = "ds",
+          change = "cs",
+    },
+      })
+    end
+  },
+  {
+  "lervag/vimtex",
+    ft = {
+      "tex",
+      "bib"
+    },
+   config = function()
+      require "custom.configs.vimtex"
+   end,
+  },
+  {
+    "github/copilot.vim",
+    lazy = false,
+  },
+  {
     "neogitOrg/neogit",
     dependencies = 'nvim-lua/plenary.nvim',
     lazy = false

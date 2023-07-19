@@ -5,8 +5,21 @@ local M = {}
 M.abc = {
   i = {
     ["jk"] = {"<ESC>", "Escape insert mode", opts = {nowait = true}},
+    ["<C-x>cm"] = {"<cmd>Copilot", "Synth completions"},
+    ["<C-x>cc"] = {"<Plug>(copilot-suggest)", "Synth suggestion"},
+    ["<C-x>v"] = {":vsplit<cr>", "Vertical split current buffer"},
+    ["<C-x>h"] = {":vsplit<cr>", "Horizontal split current buffer"},
+    ["<C-x>sa"] = {"<Plug>(nvim-surround-normal)", "Insert surround on current line"},
+    ["<C-x>sc"] = {"<Plug>(nvim-surround-change)", "Change surround on current line"},
+    ["<C-x>sd"] = {"<Plug>(nvim-surround-delte)", "Delete surround on current line"},
   },
   n = {
+    ["<leader>gg"] = {":Neogit<cr>", "Open git menu"},
+    ["<C-x>v"] = {":vsplit<cr>", "Vertical split current buffer"},
+    ["<C-x>h"] = {":vsplit<cr>", "Horizontal split current buffer"},
+    ["<C-x>sa"] = {"<Plug>(nvim-surround-normal)", "Insert surround on current line"},
+    ["<C-x>sc"] = {"<Plug>(nvim-surround-change)", "Change surround on current line"},
+    ["<C-x>sd"] = {"<Plug>(nvim-surround-delte)", "Delete surround on current line"},
   },
   v = {
     ["J"] = {":m '>+1<cr>gv=gv"},
@@ -14,14 +27,23 @@ M.abc = {
   }
 }
 
+
 M.hop = {
   plugin = true,
   n = { 
-    ["<leader><leader>/"] = {":HopPattern<cr>", "Hop: Search Pattern"},
-    ["s"] = {":HopChar1<cr>", "Hop: Search Single character"},
-    ["S"] = {":HopChar2<cr>", "Hop: Search two characters"}
+    ["sp"] = {":HopPattern<cr>", "Hop: Search Pattern"},
+    ["ss"] = {":HopChar1<cr>", "Hop: Search Single character"},
+    ["sS"] = {":HopChar2<cr>", "Hop: Search two characters"},
+    ["sw"] = {":HopWord<cr>", "Hop: Search word"},
+  },
+  v = { 
+    ["sp"] = {"<cmd>HopPattern<cr>", "Hop: Search Pattern"},
+    ["ss"] = {"<cmd>HopChar1<cr>", "Hop: Search Single character"},
+    ["sS"] = {"<cmd>HopChar2<cr>", "Hop: Search two characters"},
+    ["sw"] = {"<cmd>HopWord<cr>", "Hop: Search word"},
   }
 }
+
 
 M.harpoon = {
   plugin = true,
@@ -43,7 +65,7 @@ M.harpoon = {
       require("harpoon.ui").nav_file(4) 
     end, "Jump to fourth file in list"},
   
-  --]]
+  
   }
 }
 

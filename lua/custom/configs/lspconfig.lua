@@ -23,3 +23,8 @@ lspconfig.rust_analyzer.setup {
     }
   }
 }
+
+lspconfig.marksman.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
