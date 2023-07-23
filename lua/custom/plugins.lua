@@ -1,5 +1,28 @@
 local plugins = {
   {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    dependencies = {{ "nvim-lua/plenary.nvim" }, {"nvim-neorg/neorg-telescope"}},
+    lazy = false,
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/projects/notes",
+              },
+              default_workspace = "notes",
+            },
+          },
+          ["core.integrations.telescope"] = {},
+        },
+      }
+    end, 
+  },
+  {
   "neovim/nvim-lspconfig",
    config = function()
       require "plugins.configs.lspconfig"
