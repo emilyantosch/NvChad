@@ -15,6 +15,10 @@ M.abc = {
   },
   n = {
     ["<leader>gg"] = {":Neogit<cr>", "Open git menu"},
+    ["<leader>it"] = {"core.integrations.telescope.find_linkable", "Telescope for linkable"},
+    ["<leader>ii"] = {"<cmd>Neorg index<cr>", "Change to the index file of current workspace"},
+    ["<leader>is"] = {"<cmd>Neorg workspace<cr>", "Activate workspace function"},
+
     ["<C-x>v"] = {":vsplit<cr>", "Vertical split current buffer"},
     ["<C-x>h"] = {":vsplit<cr>", "Horizontal split current buffer"},
     ["<C-x>sa"] = {"<Plug>(nvim-surround-normal)", "Insert surround on current line"},
