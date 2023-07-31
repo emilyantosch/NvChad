@@ -72,7 +72,7 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python"},
+    ft = {"python", "javascript", "javascriptreact", "typescript", "typescriptreact"},
     opts = function ()
       return require "custom.configs.null-ls"
     end
@@ -82,7 +82,8 @@ local plugins = {
     opts = {
       ensure_installed = {
         "rust-analyzer",
-        "mypy",
+        "prettier",
+        "eslint_d",
         "ruff",
         "pyright",
         "black",
