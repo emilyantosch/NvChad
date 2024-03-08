@@ -13,9 +13,3 @@ lspconfig.marksman.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-
-lspconfig.tsserver.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-}
