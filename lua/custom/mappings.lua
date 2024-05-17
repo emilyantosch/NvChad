@@ -1,7 +1,6 @@
 local M = {}
 
 
-
 M.abc = {
   i = {
     ["jk"] = {"<ESC>", "Escape insert mode", opts = {nowait = true}},
@@ -18,12 +17,22 @@ M.abc = {
     ["<leader>it"] = {"core.integrations.telescope.find_linkable", "Telescope for linkable"},
     ["<leader>ii"] = {"<cmd>Neorg index<cr>", "Change to the index file of current workspace"},
     ["<leader>is"] = {"<cmd>Neorg workspace<cr>", "Activate workspace function"},
-
+    ["<leader>lr"] = {function ()
+      vim.lsp.buf.rename()
+    end, "Rename symbol"},
+    ["<leader>fs"] = {function ()
+     require("telescope.builtin").lsp_workspace_symbols()
+    end, "Find workspace symbols"},
     ["<C-x>v"] = {":vsplit<cr>", "Vertical split current buffer"},
     ["<C-x>h"] = {":vsplit<cr>", "Horizontal split current buffer"},
     ["<C-x>sa"] = {"<Plug>(nvim-surround-normal)", "Insert surround on current line"},
     ["<C-x>sc"] = {"<Plug>(nvim-surround-change)", "Change surround on current line"},
     ["<C-x>sd"] = {"<Plug>(nvim-surround-delte)", "Delete surround on current line"},
+
+    ["<leader>qq"] = {function() 
+	    require("psql").query_paragraph()
+    end
+    , "Query Paragraph"},
   },
   v = {
     ["J"] = {":m '>+1<cr>gv=gv"},
@@ -49,23 +58,33 @@ M.hop = {
 }
 
 
+M.vimtex = {
+  plugin = true,
+  n = {
+    ["<leader>ll"] = {"<Plug>VimtexCompile<cr>", "Compile the current file"},
+    ["<leader>lv"] = {"<Plug>VimtexView<cr>", "View the current file"},
+    ["<leader>lt"] = {"<Plug>VimtexTocToggle<cr>", "Toggle the table of contents"},
+    ["<leader>lc"] = {"<Plug>VimtexCompile<cr><Plug>VimtexView<cr>", "Compile and view the current file"},
+  }
+}
+
 M.harpoon = {
   plugin = true,
   n = {
-    ["<leader>Ha"] = {function ()
+    ["<leader>öa"] = {function ()
       require("harpoon.mark").add_file() 
     end, "Add current file to harpoon list"},
-    ["<leader>Hm"] = {function() require("harpoon.ui").toggle_quick_menu() end, "Open the quick menu"},
-    ["<leader>Hh"] = {function ()
+    ["<leader>öm"] = {function() require("harpoon.ui").toggle_quick_menu() end, "Open the quick menu"},
+    ["<leader>öh"] = {function ()
       require("harpoon.ui").nav_file(1) 
     end, "Jump to first file in list"},
-    ["<leader>Hj"] = {function ()
+    ["<leader>öj"] = {function ()
       require("harpoon.ui").nav_file(2) 
     end, "Jump to second file in list"},
-    ["<leader>Hk"] = {function ()
+    ["<leader>ök"] = {function ()
       require("harpoon.ui").nav_file(3) 
     end, "Jump to third file in list"},
-    ["<leader>Hl"] = {function ()
+    ["<leader>öl"] = {function ()
       require("harpoon.ui").nav_file(4) 
     end, "Jump to fourth file in list"},
   
