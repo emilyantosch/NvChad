@@ -15,6 +15,7 @@ M.abc = {
   n = {
     ["<leader>gg"] = {":Neogit<cr>", "Open git menu"},
     ["<leader>it"] = {"core.integrations.telescope.find_linkable", "Telescope for linkable"},
+<<<<<<< HEAD
     ["<leader>ii"] = {"<cmd>Neorg index<cr>", "Change to the index file of current workspace"},
     ["<leader>is"] = {"<cmd>Neorg workspace<cr>", "Activate workspace function"},
     ["<leader>lr"] = {function ()
@@ -23,6 +24,19 @@ M.abc = {
     ["<leader>fs"] = {function ()
      require("telescope.builtin").lsp_workspace_symbols()
     end, "Find workspace symbols"},
+||||||| parent of 50c5ddd (added also more config)
+    ["<leader>ii"] = {"<cmd>Neorg index<cr>", "Change to the index file of current workspace"},
+    ["<leader>is"] = {"<cmd>Neorg workspace<cr>", "Activate workspace function"},
+
+=======
+    ["<leader>ot"] = {"<cmd>ObsidianToday<cr>", "Open Today's daily note"},
+    ["<leader>oq"] = {"<cmd>ObsidianQuickSwitch<cr>", "QuickSwitch Telescope"},
+    ["<leader>of"] = {"<cmd>ObsidianFollowLink vsplit<cr>", "Open link in vsplit"},
+    ["<leader>or"] = {"<cmd>ObsidianRename", "Rename note"},
+    ["<leader>ol"] = {"<cmd>ObsidianLink<cr>", "Create link"},
+    ["<leader>og"] = {"<cmd>ObsidianTags<cr>", "Find tags in vault"},
+
+>>>>>>> 50c5ddd (added also more config)
     ["<C-x>v"] = {":vsplit<cr>", "Vertical split current buffer"},
     ["<C-x>h"] = {":vsplit<cr>", "Horizontal split current buffer"},
     ["<C-x>sa"] = {"<Plug>(nvim-surround-normal)", "Insert surround on current line"},
@@ -35,6 +49,7 @@ M.abc = {
     , "Query Paragraph"},
   },
   v = {
+    ["<leader>oe"] = {"<cmd>ObsidianExtractNote", "Extract visually selected text into new Note"},
     ["J"] = {":m '>+1<cr>gv=gv"},
     ["K"] = {":m '>-2<cr>gv=gv"},
   }

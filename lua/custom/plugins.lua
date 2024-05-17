@@ -1,4 +1,52 @@
 local plugins = {
+-- lazy.nvim
+{
+  "folke/noice.nvim",
+  event = "VeryLazy",
+  opts = {
+    -- add any options here
+  },
+  dependencies = {
+    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    "MunifTanjim/nui.nvim",
+    -- OPTIONAL:
+    --   `nvim-notify` is only needed, if you want to use the notification view.
+    --   If not available, we use `mini` as the fallback
+    "rcarriga/nvim-notify",
+    }
+},
+  {
+    "tpope/vim-dadbod",
+    opt = true,
+    requires = {
+      "kristijanhusak/vim-dadbod-ui",
+    },
+
+    config = function()
+      require("custom.configs.dadbod")
+    end,
+    lazy = false
+  },
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    lazy = false
+
+  },
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    ft = {
+      "python",
+      "go",
+      "javascript"
+    },
+    config = function()
+      require("refactoring").setup()
+    end,
+  },
   {
     "michaelrommel/nvim-silicon",
     lazy = true,
@@ -49,6 +97,7 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
    end,
+<<<<<<< HEAD
  },
   {"epwalsh/obsidian.nvim",
   version = "*",  -- recommended, use latest release instead of latest commit
@@ -66,6 +115,17 @@ local plugins = {
     "nvim-lua/plenary.nvim",
 
     -- see below for full list of optional dependencies 👇
+||||||| parent of 50c5ddd (added also more config)
+=======
+    dependencies = {
+      "hrsh7th/cmp-cmdline",
+    }
+  },
+  {
+  "tpope/vim-obsession",
+   config = function()
+   end,
+>>>>>>> 50c5ddd (added also more config)
   },
   opts = {
     workspaces = {
@@ -110,10 +170,35 @@ local plugins = {
    end,
   },
   {
+<<<<<<< HEAD
   "sbdchd/neoformat",
     lazy = false,
   },
   {
+||||||| parent of 50c5ddd (added also more config)
+=======
+    "epwalsh/obsidian.nvim",
+    ft = {
+      "markdown",
+    },
+    lazy = true,
+    version = "*",
+    dependencies = "nvim-lua/plenary.nvim",
+    opts = {
+      workspaces = {
+        {
+        name = "notes",
+        path = "~/projects/notes/"
+        },
+        {
+        name = "h_dnd",
+        path = "~/projects/h_dnd_quartz/content/"
+        }
+      }
+    }
+  },
+  {
+>>>>>>> 50c5ddd (added also more config)
     "github/copilot.vim",
     lazy = false,
     config = function()
@@ -122,18 +207,50 @@ local plugins = {
   },
   {
     "neogitOrg/neogit",
+<<<<<<< HEAD
     config = function ()
       require("neogit").setup {}
     end,
+||||||| parent of 50c5ddd (added also more config)
+=======
+    config = function()
+      require("neogit").setup {}
+    end,
+>>>>>>> 50c5ddd (added also more config)
     dependencies = 'nvim-lua/plenary.nvim',
     lazy = false
   },
   {
+<<<<<<< HEAD
     "smoka7/hop.nvim",
     version = "*",
     event = "VeryLazy",
+||||||| parent of 50c5ddd (added also more config)
+   "theprimeagen/harpoon",
+   lazy = false,
+    config = function ()
+     require("core.utils").load_mappings("harpoon") 
+    end
+  },
+  {
+    "phaazon/hop.nvim",
+    branch = 'v2',
+    lazy = false,
+=======
+   "theprimeagen/harpoon",
+   lazy = false,
+    config = function ()
+     require("core.utils").load_mappings("harpoon") 
+    end
+  },
+  {
+    "smoka7/hop.nvim",
+    version = '*',
+    lazy = false,
+>>>>>>> 50c5ddd (added also more config)
     config = function ()
       require("core.utils").load_mappings("hop")
+<<<<<<< HEAD
       require'hop'.setup{}
     end,
     opts = {
@@ -148,6 +265,23 @@ local plugins = {
       require("harpoon").setup {}
       require("core.utils").load_mappings("harpoon")
     end,
+||||||| parent of 50c5ddd (added also more config)
+     require'hop'.setup {} 
+    end
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    ft = {"python", "javascript", "javascriptreact", "typescript", "typescriptreact"},
+    opts = function ()
+      return require "custom.configs.null-ls"
+    end
+=======
+     require'hop'.setup {}
+    end,
+    opts = {
+      keys = 'etovxqpdygfblzhckisuran',
+    }
+>>>>>>> 50c5ddd (added also more config)
   },
   {
     "williamboman/mason.nvim",
